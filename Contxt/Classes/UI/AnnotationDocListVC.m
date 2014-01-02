@@ -131,38 +131,37 @@
 #endif
     
     // Create image picker controller
-    UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
-    
-    // Set source to the camera
-    imagePicker.sourceType =  UIImagePickerControllerSourceTypeCamera;
-    
-    // Delegate is self
-    imagePicker.delegate = self;
-    
-    // Allow editing of image ?
-    imagePicker.allowsEditing = NO;
-    
-    // Show image picker
-    [self presentViewController:imagePicker animated:animated completion:nil];
+   
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Contxt" bundle:nil];
+    cameraViewController = [sb instantiateViewControllerWithIdentifier:@"camera"];
+    cameraViewController.delegate = self;
+    [self presentViewController:cameraViewController animated:YES completion:nil];
 }
 
 - (void)launchPhotoAlbumControl
 {
-    UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
+   // UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
     
-    imagePicker.sourceType =  UIImagePickerControllerSourceTypePhotoLibrary;
-    imagePicker.delegate = self;
-    imagePicker.allowsEditing = NO;
+   // imagePicker.sourceType =  UIImagePickerControllerSourceTypePhotoLibrary;
+   // imagePicker.delegate = self;
+   // imagePicker.allowsEditing = NO;
     
-    [self presentViewController:imagePicker animated:YES completion:nil];
+    //[self presentViewController:imagePicker animated:YES completion:nil];
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Contxt" bundle:nil];
+    cameraViewController = [sb instantiateViewControllerWithIdentifier:@"camera"];
+    cameraViewController.delegate = self;
+    [self presentViewController:cameraViewController animated:YES completion:nil];
+    
 }
 
 #pragma mark - ImagePicker Delegate Methods
 
-- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+-(void)didFinishImageSelection:(NSArray*)images
 {
-    // Access the uncropped image from info dictionary
-    UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
+    if(images.count == 0)
+        return;
+    
+    UIImage *image = images[0];
     
     ImageInfo * imageInfo = [Utilities createImageInfoFromImage:image
                                                       asPreview:YES
@@ -177,10 +176,13 @@
     
     [[ServerComms sharedComms] saveAnnotationDoc:annDoc];
     
-    [picker dismissViewControllerAnimated:YES completion:nil];
+    [cameraViewController dismissViewControllerAnimated:YES completion:nil];
     
     _refreshOnAppear = TRUE;
+    
+    
 }
+
 
 - (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo
 {

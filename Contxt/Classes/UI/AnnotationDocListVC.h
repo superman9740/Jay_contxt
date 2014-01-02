@@ -11,6 +11,7 @@
 #import "ServerCommsObserver.h"
 #import "DataChangeObserver.h"
 #import "ServerComms.h"
+#import "CustomCameraViewController.h"
 
 @protocol AnnotationDocumentObserver <NSObject>
 
@@ -23,7 +24,7 @@
                                                     , DataChangeObserver
                                                     , ServerCommsObserver
                                                     , UINavigationControllerDelegate
-                                                    , UIImagePickerControllerDelegate>
+                                                    , CustomCameraDelegate>
 {
     NSMutableArray * _docList;
     BOOL _refreshOnAppear;
@@ -32,6 +33,9 @@
     NSUInteger _itemsPerRow;
     
     NSString * _docKeyToDelete;
+    
+    CustomCameraViewController* cameraViewController;
+    
 }
 
 @property (nonatomic , copy) NSString * projectKey;

@@ -282,6 +282,16 @@
 		39E2D1C217497D62002B3800 /* typingSomeone.png in Resources */ = {isa = PBXBuildFile; fileRef = 39E2D1B817497D62002B3800 /* typingSomeone.png */; };
 		39E2D1C317497D62002B3800 /* typingSomeone@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 39E2D1B917497D62002B3800 /* typingSomeone@2x.png */; };
 		39EBAA2617728FAB00BB4CAA /* DrawingFreehandView.m in Sources */ = {isa = PBXBuildFile; fileRef = 39EBAA2517728FAB00BB4CAA /* DrawingFreehandView.m */; };
+		DECC14BA1875F059009132E6 /* Contxt.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DECC14B91875F059009132E6 /* Contxt.storyboard */; };
+		DECC14C21875F097009132E6 /* flash.png in Resources */ = {isa = PBXBuildFile; fileRef = DECC14BB1875F097009132E6 /* flash.png */; };
+		DECC14C31875F097009132E6 /* switch_view.png in Resources */ = {isa = PBXBuildFile; fileRef = DECC14BC1875F097009132E6 /* switch_view.png */; };
+		DECC14C41875F097009132E6 /* done.png in Resources */ = {isa = PBXBuildFile; fileRef = DECC14BD1875F097009132E6 /* done.png */; };
+		DECC14C51875F097009132E6 /* play@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DECC14BE1875F097009132E6 /* play@2x.png */; };
+		DECC14C71875F097009132E6 /* plus.png in Resources */ = {isa = PBXBuildFile; fileRef = DECC14C01875F097009132E6 /* plus.png */; };
+		DECC14C81875F097009132E6 /* triangle.png in Resources */ = {isa = PBXBuildFile; fileRef = DECC14C11875F097009132E6 /* triangle.png */; };
+		DECC14CC1875F0C1009132E6 /* CustomCameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DECC14CB1875F0C1009132E6 /* CustomCameraViewController.m */; };
+		DECC14CF1875F0F6009132E6 /* Highlighter.m in Sources */ = {isa = PBXBuildFile; fileRef = DECC14CE1875F0F6009132E6 /* Highlighter.m */; };
+		DECC14D31875F82B009132E6 /* circle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DECC14D21875F82B009132E6 /* circle@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -678,6 +688,18 @@
 		39E2D1B917497D62002B3800 /* typingSomeone@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "typingSomeone@2x.png"; sourceTree = "<group>"; };
 		39EBAA2417728FAB00BB4CAA /* DrawingFreehandView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrawingFreehandView.h; sourceTree = "<group>"; };
 		39EBAA2517728FAB00BB4CAA /* DrawingFreehandView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrawingFreehandView.m; sourceTree = "<group>"; };
+		DECC14B91875F059009132E6 /* Contxt.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Contxt.storyboard; sourceTree = "<group>"; };
+		DECC14BB1875F097009132E6 /* flash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flash.png; sourceTree = "<group>"; };
+		DECC14BC1875F097009132E6 /* switch_view.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = switch_view.png; sourceTree = "<group>"; };
+		DECC14BD1875F097009132E6 /* done.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = done.png; sourceTree = "<group>"; };
+		DECC14BE1875F097009132E6 /* play@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "play@2x.png"; sourceTree = "<group>"; };
+		DECC14C01875F097009132E6 /* plus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plus.png; sourceTree = "<group>"; };
+		DECC14C11875F097009132E6 /* triangle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = triangle.png; sourceTree = "<group>"; };
+		DECC14CA1875F0C1009132E6 /* CustomCameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCameraViewController.h; sourceTree = "<group>"; };
+		DECC14CB1875F0C1009132E6 /* CustomCameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCameraViewController.m; sourceTree = "<group>"; };
+		DECC14CD1875F0F6009132E6 /* Highlighter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Highlighter.h; sourceTree = "<group>"; };
+		DECC14CE1875F0F6009132E6 /* Highlighter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Highlighter.m; sourceTree = "<group>"; };
+		DECC14D21875F82B009132E6 /* circle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "circle@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -884,6 +906,13 @@
 		3929AC2E1718DAA4006C90E1 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				DECC14D21875F82B009132E6 /* circle@2x.png */,
+				DECC14BB1875F097009132E6 /* flash.png */,
+				DECC14BC1875F097009132E6 /* switch_view.png */,
+				DECC14BD1875F097009132E6 /* done.png */,
+				DECC14BE1875F097009132E6 /* play@2x.png */,
+				DECC14C01875F097009132E6 /* plus.png */,
+				DECC14C11875F097009132E6 /* triangle.png */,
 				39A3C14F1812DF7C004D94E1 /* app_icon-58.png */,
 				39A3C1471812DF18004D94E1 /* app_icon_1024.png */,
 				39A3C1481812DF18004D94E1 /* app_icon-80.png */,
@@ -945,6 +974,7 @@
 		3929ACB817191144006C90E1 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				DECC14C91875F0B2009132E6 /* CustomCamera */,
 				39A3C13B180CCE9F004D94E1 /* IBActionSheet */,
 				39C45185176ABFB20095B6DE /* Drawing */,
 				39C451771769594B0095B6DE /* OtherViews */,
@@ -962,6 +992,7 @@
 				39A3C151181326C8004D94E1 /* AnnotationDocListVC.h */,
 				39A3C152181326C8004D94E1 /* AnnotationDocListVC.m */,
 				39A3C159181367D7004D94E1 /* AnnotationDocListVC.xib */,
+				DECC14B91875F059009132E6 /* Contxt.storyboard */,
 				39143D281735DF2500DF7A70 /* AnnotationDocListViewController.h */,
 				39143D291735DF2700DF7A70 /* AnnotationDocListViewController.m */,
 				39A3C15418132E53004D94E1 /* DocListTableCell.h */,
@@ -1429,6 +1460,17 @@
 			path = bubble;
 			sourceTree = "<group>";
 		};
+		DECC14C91875F0B2009132E6 /* CustomCamera */ = {
+			isa = PBXGroup;
+			children = (
+				DECC14CD1875F0F6009132E6 /* Highlighter.h */,
+				DECC14CE1875F0F6009132E6 /* Highlighter.m */,
+				DECC14CA1875F0C1009132E6 /* CustomCameraViewController.h */,
+				DECC14CB1875F0C1009132E6 /* CustomCameraViewController.m */,
+			);
+			name = CustomCamera;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1461,7 +1503,7 @@
 				ORGANIZATIONNAME = "Chad Morris";
 				TargetAttributes = {
 					3929AC211718DAA4006C90E1 = {
-						DevelopmentTeam = C7YHYUY9MY;
+						DevelopmentTeam = C5B6D5ZCDE;
 					};
 				};
 			};
@@ -1548,6 +1590,7 @@
 				39E2D1BD17497D62002B3800 /* bubbleSomeone@2x.png in Resources */,
 				39E2D1BE17497D62002B3800 /* missingAvatar.png in Resources */,
 				39A3C14B1812DF18004D94E1 /* app_icon_1024.png in Resources */,
+				DECC14C81875F097009132E6 /* triangle.png in Resources */,
 				39E2D1BF17497D62002B3800 /* missingAvatar@2x.png in Resources */,
 				39E2D1C017497D62002B3800 /* typingMine.png in Resources */,
 				39E2D1C117497D62002B3800 /* typingMine@2x.png in Resources */,
@@ -1562,8 +1605,10 @@
 				3996C6E4174DAF4400B4E030 /* address_book.png in Resources */,
 				3996C6E5174DAF4400B4E030 /* address_book@2x.png in Resources */,
 				3996C7081753B54100B4E030 /* loupe-hi_target@2x.png in Resources */,
+				DECC14D31875F82B009132E6 /* circle@2x.png in Resources */,
 				39A3C14E1812DF18004D94E1 /* app_icon-512.png in Resources */,
 				39DC4B04182B211100EC0EC3 /* rectangle.png in Resources */,
+				DECC14C31875F097009132E6 /* switch_view.png in Resources */,
 				3996C7091753B54100B4E030 /* loupe-mask@2x.png in Resources */,
 				39C450FF17616ACF0095B6DE /* icon.png in Resources */,
 				39C4510017616ACF0095B6DE /* icon@2x.png in Resources */,
@@ -1589,11 +1634,13 @@
 				39C4514B1766EB410095B6DE /* shapes@2x.png in Resources */,
 				39A3C16618172E5A004D94E1 /* Default-568.png in Resources */,
 				39C451501766ED140095B6DE /* font.png in Resources */,
+				DECC14C21875F097009132E6 /* flash.png in Resources */,
 				39C451511766ED140095B6DE /* font@2x.png in Resources */,
 				39C451521766ED140095B6DE /* text.png in Resources */,
 				39C451531766ED140095B6DE /* text@2x.png in Resources */,
 				39163CF418258B9B005E87F3 /* resize_font.png in Resources */,
 				39C451561766EE190095B6DE /* magnify.png in Resources */,
+				DECC14C41875F097009132E6 /* done.png in Resources */,
 				394D2F2718331E79005F33EE /* cloud-download.png in Resources */,
 				39A3C15818132F2A004D94E1 /* DocListTableCell.xib in Resources */,
 				398EF1B41821D04B0041539A /* icon_60@2x.png in Resources */,
@@ -1604,6 +1651,7 @@
 				398EF1C118257F890041539A /* arrow_left@2x.png in Resources */,
 				39C4517C1769597A0095B6DE /* FontSliderView.xib in Resources */,
 				39C4518F176CEB850095B6DE /* brush.png in Resources */,
+				DECC14BA1875F059009132E6 /* Contxt.storyboard in Resources */,
 				39C45190176CEB850095B6DE /* brush@2x.png in Resources */,
 				39C45191176CEB850095B6DE /* eyedropper.png in Resources */,
 				39C45192176CEB850095B6DE /* eyedropper@2x.png in Resources */,
@@ -1614,6 +1662,7 @@
 				3971294717813A1D001F16A7 /* chat-toolbar@2x.png in Resources */,
 				39A3C15A181367D7004D94E1 /* AnnotationDocListVC.xib in Resources */,
 				3971294C178F59FA001F16A7 /* page_left_arrow_bg.png in Resources */,
+				DECC14C71875F097009132E6 /* plus.png in Resources */,
 				3971294D178F59FA001F16A7 /* page_left_arrow_bg@2x.png in Resources */,
 				3971294E178F59FA001F16A7 /* page_right_arrow_bg.png in Resources */,
 				3971294F178F59FA001F16A7 /* page_right_arrow_bg@2x.png in Resources */,
@@ -1623,6 +1672,7 @@
 				39163CF518258B9B005E87F3 /* resize_font@2x.png in Resources */,
 				39712955178FE1A9001F16A7 /* camera_white@2x.png in Resources */,
 				39712956178FE1A9001F16A7 /* plus_white.png in Resources */,
+				DECC14C51875F097009132E6 /* play@2x.png in Resources */,
 				39712957178FE1A9001F16A7 /* plus_white@2x.png in Resources */,
 				3971295A1791E397001F16A7 /* pin-pointer.png in Resources */,
 				3971295B1791E397001F16A7 /* pin-pointer@2x.png in Resources */,
@@ -1678,6 +1728,7 @@
 				3929AC411718DAA4006C90E1 /* Contxt.xcdatamodeld in Sources */,
 				39A3C15618132E53004D94E1 /* DocListTableCell.m in Sources */,
 				3929AC4D1718EB96006C90E1 /* Appirater.m in Sources */,
+				DECC14CC1875F0C1009132E6 /* CustomCameraViewController.m in Sources */,
 				3929AC631718EEB9006C90E1 /* FirstRunChecker.m in Sources */,
 				3929AC641718EEB9006C90E1 /* UICustomization.m in Sources */,
 				3929AC651718EEB9006C90E1 /* Utilities.m in Sources */,
@@ -1703,6 +1754,7 @@
 				39143CCE172E10EB00DF7A70 /* NSManagedObject+Serialization.m in Sources */,
 				39143CD41731EA1700DF7A70 /* InputCell.m in Sources */,
 				39143CD81731F37000DF7A70 /* TPKeyboardAvoidingScrollView.m in Sources */,
+				DECC14CF1875F0F6009132E6 /* Highlighter.m in Sources */,
 				39143CDF1732DCA000DF7A70 /* ProjectDetailsCell.m in Sources */,
 				39143CE41732DFA000DF7A70 /* ProjectListViewController.m in Sources */,
 				39143CE8173338E100DF7A70 /* ProjectViewController.m in Sources */,
@@ -1860,13 +1912,15 @@
 		3929AC451718DAA4006C90E1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Contxt/Contxt-Prefix.pch";
 				INFOPLIST_FILE = "Contxt/Contxt-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = contxt;
-				PROVISIONING_PROFILE = "BADD99A5-7C30-4C48-8CEE-3824F8EFC315";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -1875,15 +1929,16 @@
 		3929AC461718DAA4006C90E1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Beacon Dynamic Systems, LLC (C7YHYUY9MY)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Beacon Dynamic Systems, LLC (C7YHYUY9MY)";
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Contxt/Contxt-Prefix.pch";
 				INFOPLIST_FILE = "Contxt/Contxt-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = contxt;
-				PROVISIONING_PROFILE = "495E2557-6F8E-464A-A796-0C18B39129CE";
+				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "495E2557-6F8E-464A-A796-0C18B39129CE";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
