@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3401" systemVersion="13A603" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Annotation" representedClassName="Annotation" isAbstract="YES" parentEntity="Object" syncable="YES">
+        <attribute name="dateCreated" attributeType="Date" syncable="YES"/>
+        <attribute name="dateUpdated" attributeType="Date" syncable="YES"/>
+        <attribute name="owner" attributeType="String" minValueString="5" syncable="YES"/>
+        <relationship name="anchorPoint" optional="YES" minCount="1" maxCount="1" deletionRule="Cascade" destinationEntity="AnnotationPoint" inverseName="parentAnnotation" inverseEntity="AnnotationPoint" syncable="YES"/>
+        <relationship name="anchorPointCenter" optional="YES" minCount="1" maxCount="1" deletionRule="Cascade" destinationEntity="AnnotationPoint" inverseName="parentCenterAnnotationPoint" inverseEntity="AnnotationPoint" syncable="YES"/>
+        <relationship name="details" optional="YES" minCount="1" maxCount="1" deletionRule="Cascade" destinationEntity="AnnotationDetails" inverseName="parentAnnotation" inverseEntity="AnnotationDetails" syncable="YES"/>
+        <relationship name="parentAnnotationDocument" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="AnnotationDocument" inverseName="annotations" inverseEntity="AnnotationDocument" syncable="YES"/>
+    </entity>
+    <entity name="AnnotationDetails" representedClassName="AnnotationDetails" parentEntity="Object" syncable="YES">
+        <attribute name="dateCreated" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="dateUpdated" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="owner" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="parentAnnotation" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Annotation" inverseName="details" inverseEntity="Annotation" syncable="YES"/>
+    </entity>
+    <entity name="AnnotationDocument" representedClassName="AnnotationDocument" parentEntity="Object" syncable="YES">
+        <attribute name="isShared" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
+        <relationship name="annotations" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Annotation" inverseName="parentAnnotationDocument" inverseEntity="Annotation" syncable="YES"/>
+        <relationship name="image" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="ImageInfo" inverseName="parentAnnotationDocument" inverseEntity="ImageInfo" syncable="YES"/>
+        <relationship name="parentAnnotation" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="ImageAnnotation" inverseName="annotationDoc" inverseEntity="ImageAnnotation" syncable="YES"/>
+        <relationship name="parentProject" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Project" inverseName="annotationDocs" inverseEntity="Project" syncable="YES"/>
+    </entity>
+    <entity name="AnnotationPoint" representedClassName="AnnotationPoint" syncable="YES">
+        <attribute name="x" optional="YES" attributeType="Float" defaultValueString="0" syncable="YES"/>
+        <attribute name="y" optional="YES" attributeType="Float" defaultValueString="0" syncable="YES"/>
+        <relationship name="parentAnnotation" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Annotation" inverseName="anchorPoint" inverseEntity="Annotation" syncable="YES"/>
+        <relationship name="parentCenterAnnotationPoint" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Annotation" inverseName="anchorPointCenter" inverseEntity="Annotation" syncable="YES"/>
+        <relationship name="parentDrawingAnnotation" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="DrawingAnnotation" inverseName="customPoints" inverseEntity="DrawingAnnotation" syncable="YES"/>
+    </entity>
+    <entity name="AnnotationSize" representedClassName="AnnotationSize" syncable="YES">
+        <attribute name="height" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="width" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="parentAnnotation" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="DrawingAnnotation" inverseName="size" inverseEntity="DrawingAnnotation" syncable="YES"/>
+    </entity>
+    <entity name="ContxtContact" representedClassName="ContxtContact" parentEntity="Object" syncable="YES">
+        <attribute name="email" attributeType="String" syncable="YES"/>
+        <attribute name="firstName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="lastName" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="parentConvoThread" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ConversationThread" inverseName="participants" inverseEntity="ConversationThread" syncable="YES"/>
+    </entity>
+    <entity name="ConversationMessage" representedClassName="ConversationMessage" parentEntity="Object" syncable="YES">
+        <attribute name="dateCreated" attributeType="Date" syncable="YES"/>
+        <attribute name="imageInfoExt" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="imageInfoKey" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="owner" attributeType="String" minValueString="1" syncable="YES"/>
+        <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="unread" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
+        <relationship name="image" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="ImageInfo" inverseName="parentConversationMessage" inverseEntity="ImageInfo" syncable="YES"/>
+        <relationship name="parentConvoThread" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="ConversationThread" inverseName="convoMessages" inverseEntity="ConversationThread" syncable="YES"/>
+    </entity>
+    <entity name="ConversationThread" representedClassName="ConversationThread" parentEntity="Object" syncable="YES">
+        <attribute name="dateCreated" attributeType="Date" syncable="YES"/>
+        <attribute name="details" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="owner" attributeType="String" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="unread" attributeType="Boolean" minValueString="0" defaultValueString="0" syncable="YES"/>
+        <relationship name="convoMessages" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="ConversationMessage" inverseName="parentConvoThread" inverseEntity="ConversationMessage" syncable="YES"/>
+        <relationship name="parentAnnotation" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="ConvoAnnotation" inverseName="convoThread" inverseEntity="ConvoAnnotation" syncable="YES"/>
+        <relationship name="participants" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ContxtContact" inverseName="parentConvoThread" inverseEntity="ContxtContact" syncable="YES"/>
+    </entity>
+    <entity name="ConvoAnnotation" representedClassName="ConvoAnnotation" parentEntity="Annotation" syncable="YES">
+        <relationship name="convoThread" optional="YES" minCount="1" maxCount="1" deletionRule="Cascade" destinationEntity="ConversationThread" inverseName="parentAnnotation" inverseEntity="ConversationThread" syncable="YES"/>
+    </entity>
+    <entity name="DrawingAnnotation" representedClassName="DrawingAnnotation" parentEntity="Annotation" syncable="YES">
+        <attribute name="anchorLocation" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="color" attributeType="Integer 16" minValueString="0" maxValueString="7" defaultValueString="3" syncable="YES"/>
+        <attribute name="drawingType" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="fontSize" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="customPoints" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="AnnotationPoint" inverseName="parentDrawingAnnotation" inverseEntity="AnnotationPoint" syncable="YES"/>
+        <relationship name="size" optional="YES" minCount="1" maxCount="1" deletionRule="Cascade" destinationEntity="AnnotationSize" inverseName="parentAnnotation" inverseEntity="AnnotationSize" syncable="YES"/>
+    </entity>
+    <entity name="ImageAnnotation" representedClassName="ImageAnnotation" parentEntity="Annotation" syncable="YES">
+        <attribute name="source" attributeType="String" defaultValueString="Camera" syncable="YES"/>
+        <relationship name="annotationDoc" optional="YES" minCount="1" maxCount="1" deletionRule="Cascade" destinationEntity="AnnotationDocument" inverseName="parentAnnotation" inverseEntity="AnnotationDocument" syncable="YES"/>
+    </entity>
+    <entity name="ImageInfo" representedClassName="ImageInfo" parentEntity="Object" syncable="YES">
+        <attribute name="dateCreated" attributeType="Date" syncable="YES"/>
+        <attribute name="extension" attributeType="String" defaultValueString="png" syncable="YES"/>
+        <attribute name="filename" attributeType="String" syncable="YES"/>
+        <attribute name="owner" attributeType="String" syncable="YES"/>
+        <attribute name="path" attributeType="String" syncable="YES"/>
+        <attribute name="previewPath" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="thumbPath" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="parentAnnotationDocument" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="AnnotationDocument" inverseName="image" inverseEntity="AnnotationDocument" syncable="YES"/>
+        <relationship name="parentConversationMessage" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="ConversationMessage" inverseName="image" inverseEntity="ConversationMessage" syncable="YES"/>
+        <relationship name="parentProject" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Project" inverseName="thumbnail" inverseEntity="Project" syncable="YES"/>
+    </entity>
+    <entity name="LoginCreds" representedClassName="LoginCreds" parentEntity="Object" syncable="YES">
+        <attribute name="password" attributeType="String" syncable="YES"/>
+        <attribute name="username" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Object" representedClassName="Object" isAbstract="YES" syncable="YES">
+        <attribute name="key" attributeType="String" minValueString="1" syncable="YES"/>
+        <attribute name="pendingChangeJSON" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="pendingChangeStatus" attributeType="Integer 16" minValueString="0" defaultValueString="0" syncable="YES"/>
+        <attribute name="status" attributeType="Integer 16" minValueString="-1" maxValueString="1" defaultValueString="0" syncable="YES"/>
+    </entity>
+    <entity name="Project" representedClassName="Project" parentEntity="Object" syncable="YES">
+        <attribute name="dateCreated" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="dateUpdated" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="owner" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="tags" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="annotationDocs" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="AnnotationDocument" inverseName="parentProject" inverseEntity="AnnotationDocument" syncable="YES"/>
+        <relationship name="thumbnail" optional="YES" minCount="1" maxCount="1" deletionRule="Cascade" destinationEntity="ImageInfo" inverseName="parentProject" inverseEntity="ImageInfo" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Annotation" positionX="-434" positionY="-144" width="128" height="150"/>
+        <element name="AnnotationDetails" positionX="-200" positionY="-33" width="128" height="105"/>
+        <element name="AnnotationDocument" positionX="-657" positionY="-144" width="128" height="120"/>
+        <element name="AnnotationPoint" positionX="-207" positionY="-189" width="128" height="120"/>
+        <element name="AnnotationSize" positionX="-209" positionY="108" width="128" height="90"/>
+        <element name="ContxtContact" positionX="-234" positionY="-531" width="128" height="105"/>
+        <element name="ConversationMessage" positionX="-207" positionY="-381" width="128" height="165"/>
+        <element name="ConversationThread" positionX="-432" positionY="-504" width="128" height="165"/>
+        <element name="ConvoAnnotation" positionX="-443" positionY="-276" width="128" height="60"/>
+        <element name="DrawingAnnotation" positionX="-461" positionY="63" width="128" height="150"/>
+        <element name="ImageAnnotation" positionX="-632" positionY="81" width="128" height="75"/>
+        <element name="ImageInfo" positionX="-837" positionY="-126" width="128" height="195"/>
+        <element name="LoginCreds" positionX="-686" positionY="-450" width="128" height="75"/>
+        <element name="Object" positionX="-639" positionY="-339" width="128" height="105"/>
+        <element name="Project" positionX="-855" positionY="-360" width="128" height="150"/>
+    </elements>
+</model>
