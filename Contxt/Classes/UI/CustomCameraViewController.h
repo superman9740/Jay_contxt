@@ -58,6 +58,13 @@
 @property (strong, nonatomic) IBOutlet UIButton* torchAutoButton;
 
 
+@property (strong, nonatomic) IBOutlet UIImageView* takePhotoButton;
+@property (strong, nonatomic) IBOutlet UIButton* loadNativeCameraRoll;
+@property (strong, nonatomic) IBOutlet UIButton* doneButton;
+
+
+
+
 -(IBAction)takePhoto:(id)sender;
 -(IBAction)updatePicRollView:(id)sender;
 - (UIImage *) imageFromSampleBuffer:(CMSampleBufferRef) sampleBuffer;
@@ -71,6 +78,8 @@
 -(IBAction)turnTorchOn:(id)sender;
 -(IBAction)turnTorchOff:(id)sender;
 -(IBAction)setTorchToAuto:(id)sender;
+-(void)handleSingleTap:(UITapGestureRecognizer *)recognizer;
+
 
 
 @end

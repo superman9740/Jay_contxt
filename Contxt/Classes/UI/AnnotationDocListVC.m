@@ -157,20 +157,23 @@
     if(images.count == 0)
         return;
     
-    UIImage *image = images[0];
-    
-    ImageInfo * imageInfo = [Utilities createImageInfoFromImage:image
-                                                      asPreview:YES
-                                                    asThumbnail:YES];
-    
-    AnnotationDocument * annDoc = [[DataController sharedController] newAnnotationDocument];
-    Project * thisProject = [[DataController sharedController] projectForKey:self.projectKey];
-    
-    [[DataController sharedController] associateImageInfo:imageInfo withAnnotationDocument:annDoc];
-    [[DataController sharedController] associateAnnotationDocument:annDoc withProject:thisProject];
-    [[DataController sharedController] saveContext];
-    
-    [[ServerComms sharedComms] saveAnnotationDoc:annDoc];
+    for (UIImage* image in images)
+    {
+        
+        ImageInfo * imageInfo = [Utilities createImageInfoFromImage:image
+                                                          asPreview:YES
+                                                        asThumbnail:YES];
+        
+        AnnotationDocument * annDoc = [[DataController sharedController] newAnnotationDocument];
+        Project * thisProject = [[DataController sharedController] projectForKey:self.projectKey];
+        
+        [[DataController sharedController] associateImageInfo:imageInfo withAnnotationDocument:annDoc];
+        [[DataController sharedController] associateAnnotationDocument:annDoc withProject:thisProject];
+        [[DataController sharedController] saveContext];
+        
+        [[ServerComms sharedComms] saveAnnotationDoc:annDoc];
+        
+    }
     
     [cameraViewController dismissViewControllerAnimated:YES completion:nil];
     

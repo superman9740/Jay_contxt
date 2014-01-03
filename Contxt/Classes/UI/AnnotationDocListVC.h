@@ -24,6 +24,7 @@
                                                     , DataChangeObserver
                                                     , ServerCommsObserver
                                                     , UINavigationControllerDelegate
+                                                    , UIImagePickerControllerDelegate
                                                     , CustomCameraDelegate>
 {
     NSMutableArray * _docList;

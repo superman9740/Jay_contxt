@@ -27,6 +27,10 @@ static inline double radians (double degrees) {return degrees * M_PI/180;}
   
     UITapGestureRecognizer* tapGestureRecog = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(updateScrollBarPosition:)];
     [_triangleButton addGestureRecognizer:tapGestureRecog];
+  
+    
+    UITapGestureRecognizer* tapGestureRecog2 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleSingleTap:)];
+    [_cameraView addGestureRecognizer:tapGestureRecog2];
     
     [self.view bringSubviewToFront:_topView];
   
@@ -117,47 +121,42 @@ for (int i = 5; i > 0; i--)
     
     
 }
-
--(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-    
-    [touches enumerateObjectsUsingBlock:^(id obj, BOOL *stop)
-     {
-        UITouch *touch = obj;
-        CGPoint touchPoint = [touch locationInView:_cameraView];
-         CustomCameraTapToFocusRectangle* view = [[CustomCameraTapToFocusRectangle alloc] initWithFrame:CGRectMake((touchPoint.x-25), (touchPoint.y-25), 100, 100)];
-         [self.view addSubview:view];
+-(void)handleSingleTap:(UITapGestureRecognizer *)recognizer;
+{
+    CGPoint touchPoint = [recognizer locationInView:[recognizer.view superview]];
+    CustomCameraTapToFocusRectangle* view = [[CustomCameraTapToFocusRectangle alloc] initWithFrame:CGRectMake((touchPoint.x-25), (touchPoint.y-25), 100, 100)];
+    [self.view addSubview:view];
          
          
-        
-        NSArray *devices = [AVCaptureDevice devices];
-        
-        for (AVCaptureDevice *device in devices) {
-            
-            NSLog(@"Device name: %@", [device localizedName]);
-            
-            if ([device hasMediaType:AVMediaTypeVideo])
-            {
-                if ([device isFocusPointOfInterestSupported]) {
-                    NSError *error;
-                    if ([device lockForConfiguration:&error]) {
-                        [device setFocusPointOfInterest:touchPoint];
-                        [device setExposurePointOfInterest:touchPoint];
-                        
-                        [device setFocusMode:AVCaptureFocusModeAutoFocus];
-                        if ([device isExposureModeSupported:AVCaptureExposureModeAutoExpose]){
-                            [device setExposureMode:AVCaptureExposureModeAutoExpose];
-                        }
-                        [device unlockForConfiguration];
-                    }
-                }
-       
-       
-            }
-        }
-    }];
+         
+         NSArray *devices = [AVCaptureDevice devices];
+         
+         for (AVCaptureDevice *device in devices) {
+             
+             NSLog(@"Device name: %@", [device localizedName]);
+             
+             if ([device hasMediaType:AVMediaTypeVideo])
+             {
+                 if ([device isFocusPointOfInterestSupported]) {
+                     NSError *error;
+                     if ([device lockForConfiguration:&error]) {
+                         [device setFocusPointOfInterest:touchPoint];
+                         [device setExposurePointOfInterest:touchPoint];
+                         
+                         [device setFocusMode:AVCaptureFocusModeAutoFocus];
+                         if ([device isExposureModeSupported:AVCaptureExposureModeAutoExpose]){
+                             [device setExposureMode:AVCaptureExposureModeAutoExpose];
+                         }
+                         [device unlockForConfiguration];
+                     }
+                 }
+                 
+                 
+             }
+         }
     
-     
 }
+
 
 -(IBAction)takePhoto:(id)sender
 {

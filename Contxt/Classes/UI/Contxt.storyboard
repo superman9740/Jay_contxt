@@ -123,6 +123,9 @@
                     <connections>
                         <outlet property="bottomView" destination="wTV-91-oxN" id="7aj-Ap-Imc"/>
                         <outlet property="cameraView" destination="WHl-nD-R6z" id="baI-0i-jt0"/>
+                        <outlet property="doneButton" destination="O8P-Un-1Ko" id="fOc-Yq-XrQ"/>
+                        <outlet property="loadNativeCameraRoll" destination="QTR-qo-Bcu" id="RKS-GY-t0e"/>
+                        <outlet property="takePhotoButton" destination="I4j-dG-vPi" id="w9u-1v-9Sb"/>
                         <outlet property="thumbnailView" destination="Ywj-Rn-LvP" id="MyA-MY-ggt"/>
                         <outlet property="topView" destination="0Pf-4O-vI5" id="kPU-T4-41N"/>
                         <outlet property="triangleButton" destination="k0L-7C-x5Y" id="Fm6-Ja-52G"/>
