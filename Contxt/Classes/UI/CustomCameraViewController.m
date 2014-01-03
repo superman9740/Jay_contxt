@@ -407,7 +407,27 @@ for (int i = 5; i > 0; i--)
             imageToSave = originalImage;
         }
         
-        [images addObject:imageToSave];
+        CGSize size = CGSizeMake(3000,3000);
+        
+        // Create the bitmap context
+        UIGraphicsBeginImageContext(size);
+        
+        CGContextRef bitmap = UIGraphicsGetCurrentContext();
+        
+        // Move the origin to the middle of the image so we will rotate and scale around the center.
+        CGContextTranslateCTM(bitmap, size.width/2, size.height/2);
+        
+        CGContextRotateCTM(bitmap, radians(90));
+        CGContextScaleCTM(bitmap, 1.0f, -1.0f);
+        CGContextDrawImage(bitmap, CGRectMake(-size.width / 2, -size.height / 2, size.width, size.height), [originalImage CGImage]);
+        
+        UIImage *rotatedImage = UIGraphicsGetImageFromCurrentImageContext();
+        
+        UIGraphicsEndImageContext();
+        
+        
+        
+        [images addObject:rotatedImage];
         [self updatePicRollView:self];
         
     

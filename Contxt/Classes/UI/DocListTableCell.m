@@ -35,6 +35,7 @@
         [_leftImage addGestureRecognizer:swipelgr];
         [_leftImage addGestureRecognizer:swipergr];
         [_leftImage addGestureRecognizer:tapgr];
+        [_leftImage setContentMode:UIViewContentModeScaleAspectFit];
         
         _leftImage.image = [UIImage imageWithContentsOfFile:_leftDoc.image.previewPath];
     }
@@ -61,6 +62,8 @@
         [_rightImage addGestureRecognizer:swipelgr];
         [_rightImage addGestureRecognizer:swipergr];
         [_rightImage addGestureRecognizer:tapgr];
+        
+        [_rightImage setContentMode:UIViewContentModeScaleAspectFit];
         
         _rightImage.image = [UIImage imageWithContentsOfFile:_rightDoc.image.previewPath];
     }
