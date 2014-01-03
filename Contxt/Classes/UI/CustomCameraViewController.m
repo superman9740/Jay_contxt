@@ -21,8 +21,8 @@ static inline double radians (double degrees) {return degrees * M_PI/180;}
 {
     [super viewDidLoad];
     images = [[NSMutableArray alloc] initWithCapacity:10];
-    
-    _previewLayer.frame = _cameraView.frame;
+    [_cameraView.layer addSublayer:_previewLayer];
+    //_previewLayer.frame = _cameraView.frame;
     [self setupCaptureSession:[self backCamera]];
   
     UITapGestureRecognizer* tapGestureRecog = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(updateScrollBarPosition:)];
@@ -113,16 +113,62 @@ for (int i = 5; i > 0; i--)
     [_session addOutput:[self stillImageOutput]];
     
     
+    [self setTorchAutoButton:nil];
     
     
 }
 
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    
+    [touches enumerateObjectsUsingBlock:^(id obj, BOOL *stop)
+     {
+        UITouch *touch = obj;
+        CGPoint touchPoint = [touch locationInView:_cameraView];
+         CustomCameraTapToFocusRectangle* view = [[CustomCameraTapToFocusRectangle alloc] initWithFrame:CGRectMake((touchPoint.x-25), (touchPoint.y-25), 100, 100)];
+         [self.view addSubview:view];
+         
+         
+        
+        NSArray *devices = [AVCaptureDevice devices];
+        
+        for (AVCaptureDevice *device in devices) {
+            
+            NSLog(@"Device name: %@", [device localizedName]);
+            
+            if ([device hasMediaType:AVMediaTypeVideo])
+            {
+                if ([device isFocusPointOfInterestSupported]) {
+                    NSError *error;
+                    if ([device lockForConfiguration:&error]) {
+                        [device setFocusPointOfInterest:touchPoint];
+                        [device setExposurePointOfInterest:touchPoint];
+                        
+                        [device setFocusMode:AVCaptureFocusModeAutoFocus];
+                        if ([device isExposureModeSupported:AVCaptureExposureModeAutoExpose]){
+                            [device setExposureMode:AVCaptureExposureModeAutoExpose];
+                        }
+                        [device unlockForConfiguration];
+                    }
+                }
+       
+       
+            }
+        }
+    }];
+    
+     
+}
 
 -(IBAction)takePhoto:(id)sender
 {
     if([[UIDevice currentDevice] orientation] != UIInterfaceOrientationPortrait)
+    {
+        UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"Unsupported orientation" message:@"Taking landscape photos is not supported." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alertView show];
+        
+        
         return;
-    
+    }
     
     AVCaptureConnection *videoConnection = nil;
     for (AVCaptureConnection *connection in [[self stillImageOutput] connections]) {
@@ -419,6 +465,81 @@ for (int i = 5; i > 0; i--)
     
 }
 
+#pragma mark flash methods
+-(IBAction)turnTorchOn:(id)sender
+{
+    NSArray *devices = [AVCaptureDevice devicesWithMediaType:AVMediaTypeVideo];
+    for (AVCaptureDevice *device in devices) {
+            if(device.torchAvailable)
+            {
+            
+                [_session beginConfiguration];
+                [device lockForConfiguration:nil];
+                
+                [device setTorchMode:AVCaptureTorchModeOn];
+                [device unlockForConfiguration];
+                [_session commitConfiguration];
+                
+            }
+            
+       // _torchOffButton.enabled = NO;
+       // _torchAutoButton.enabled = NO;
+        
+        
+    }
+
+    
+}
+-(IBAction)turnTorchOff:(id)sender
+{
+    NSArray *devices = [AVCaptureDevice devicesWithMediaType:AVMediaTypeVideo];
+    for (AVCaptureDevice *device in devices) {
+            if(device.torchAvailable)
+            {
+                
+                [_session beginConfiguration];
+                [device lockForConfiguration:nil];
+                
+                [device setTorchMode:AVCaptureTorchModeOff];
+                [device unlockForConfiguration];
+                [_session commitConfiguration];
+                
+                
+            }
+            
+       // _torchOnButton.enabled = NO;
+       // _torchAutoButton.enabled = NO;
+        
+       
+    }
+
+    
+}
+-(IBAction)setTorchToAuto:(id)sender
+{
+    
+    NSArray *devices = [AVCaptureDevice devicesWithMediaType:AVMediaTypeVideo];
+    for (AVCaptureDevice *device in devices) {
+          if(device.torchAvailable)
+          {
+              
+              [_session beginConfiguration];
+              [device lockForConfiguration:nil];
+              [device setTorchMode:AVCaptureTorchModeAuto];
+              [device unlockForConfiguration];
+              [_session commitConfiguration];
+              
+              
+          }
+            
+     //   _torchOffButton.enabled = NO;
+     //   _torchOnButton.enabled = NO;
+        
+        
+    }
+
+    
+}
 
 - (void)didReceiveMemoryWarning
 {

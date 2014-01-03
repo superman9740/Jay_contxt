@@ -47,7 +47,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "868"
             endingLineNumber = "868"
-            landmarkName = "-launchPhotoLibraryImport"
+            landmarkName = "-launchCameraControl:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

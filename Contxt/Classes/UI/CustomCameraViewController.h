@@ -10,6 +10,7 @@
 #import <AVFoundation/AVFoundation.h>
 #import <QuartzCore/QuartzCore.h>
 #import "Highlighter.h"
+#import "CustomCameraTapToFocusRectangle.h"
 
 @import CoreImage;
 @import CoreMedia;
@@ -46,9 +47,15 @@
 
 @property (strong, nonatomic) AVCaptureStillImageOutput* stillImageOutput;
 @property (strong, nonatomic) AVCaptureSession* session;
+@property (strong, nonatomic) AVCaptureDevice* videoDevice;
+
 @property (strong, nonatomic) AVCaptureVideoPreviewLayer* previewLayer;
 
 @property (strong, nonatomic) IBOutlet UIImageView* triangleButton;
+
+@property (strong, nonatomic) IBOutlet UIButton* torchOnButton;
+@property (strong, nonatomic) IBOutlet UIButton* torchOffButton;
+@property (strong, nonatomic) IBOutlet UIButton* torchAutoButton;
 
 
 -(IBAction)takePhoto:(id)sender;
@@ -61,5 +68,9 @@
 -(IBAction)updateScrollBarPosition:(id)sender;
 -(IBAction)done:(id)sender;
 -(IBAction)switchCameras:(id)sender;
+-(IBAction)turnTorchOn:(id)sender;
+-(IBAction)turnTorchOff:(id)sender;
+-(IBAction)setTorchToAuto:(id)sender;
+
 
 @end

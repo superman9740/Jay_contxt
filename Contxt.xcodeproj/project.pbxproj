@@ -292,6 +292,7 @@
 		DECC14CC1875F0C1009132E6 /* CustomCameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DECC14CB1875F0C1009132E6 /* CustomCameraViewController.m */; };
 		DECC14CF1875F0F6009132E6 /* Highlighter.m in Sources */ = {isa = PBXBuildFile; fileRef = DECC14CE1875F0F6009132E6 /* Highlighter.m */; };
 		DECC14D31875F82B009132E6 /* circle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DECC14D21875F82B009132E6 /* circle@2x.png */; };
+		DED8EA7518774A2300E07C83 /* CustomCameraTapToFocusRectangle.m in Sources */ = {isa = PBXBuildFile; fileRef = DED8EA7418774A2300E07C83 /* CustomCameraTapToFocusRectangle.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -700,6 +701,8 @@
 		DECC14CD1875F0F6009132E6 /* Highlighter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Highlighter.h; sourceTree = "<group>"; };
 		DECC14CE1875F0F6009132E6 /* Highlighter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Highlighter.m; sourceTree = "<group>"; };
 		DECC14D21875F82B009132E6 /* circle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "circle@2x.png"; sourceTree = "<group>"; };
+		DED8EA7318774A2300E07C83 /* CustomCameraTapToFocusRectangle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCameraTapToFocusRectangle.h; sourceTree = "<group>"; };
+		DED8EA7418774A2300E07C83 /* CustomCameraTapToFocusRectangle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCameraTapToFocusRectangle.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1467,6 +1470,8 @@
 				DECC14CE1875F0F6009132E6 /* Highlighter.m */,
 				DECC14CA1875F0C1009132E6 /* CustomCameraViewController.h */,
 				DECC14CB1875F0C1009132E6 /* CustomCameraViewController.m */,
+				DED8EA7318774A2300E07C83 /* CustomCameraTapToFocusRectangle.h */,
+				DED8EA7418774A2300E07C83 /* CustomCameraTapToFocusRectangle.m */,
 			);
 			name = CustomCamera;
 			sourceTree = "<group>";
@@ -1817,6 +1822,7 @@
 				390838DF17B1E1830038AE87 /* AFJSONRequestOperation.m in Sources */,
 				39A3C1641815D8BC004D94E1 /* PbDoubleTapGestureRecognizer.m in Sources */,
 				390838E017B1E1830038AE87 /* AFNetworkActivityIndicatorManager.m in Sources */,
+				DED8EA7518774A2300E07C83 /* CustomCameraTapToFocusRectangle.m in Sources */,
 				390838E117B1E1830038AE87 /* AFPropertyListRequestOperation.m in Sources */,
 				390838E217B1E1830038AE87 /* AFURLConnectionOperation.m in Sources */,
 				390838E317B1E1830038AE87 /* AFXMLRequestOperation.m in Sources */,
@@ -1920,7 +1926,7 @@
 				INFOPLIST_FILE = "Contxt/Contxt-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = contxt;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "A2515F42-15DC-4ADF-BF5E-F3B80B96BB19";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -1930,16 +1936,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Ronald Dickson (C5B6D5ZCDE)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Ronald Dickson (C5B6D5ZCDE)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Contxt/Contxt-Prefix.pch";
 				INFOPLIST_FILE = "Contxt/Contxt-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = contxt;
-				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "495E2557-6F8E-464A-A796-0C18B39129CE";
+				PROVISIONING_PROFILE = "CF9F15A6-EE64-44CB-A69D-C4CD57EE9560";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "CF9F15A6-EE64-44CB-A69D-C4CD57EE9560";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};

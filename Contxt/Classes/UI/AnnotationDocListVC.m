@@ -140,17 +140,13 @@
 
 - (void)launchPhotoAlbumControl
 {
-   // UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
+    UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
     
-   // imagePicker.sourceType =  UIImagePickerControllerSourceTypePhotoLibrary;
-   // imagePicker.delegate = self;
-   // imagePicker.allowsEditing = NO;
+    imagePicker.sourceType =  UIImagePickerControllerSourceTypePhotoLibrary;
+    imagePicker.delegate = self;
+    imagePicker.allowsEditing = NO;
     
-    //[self presentViewController:imagePicker animated:YES completion:nil];
-    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Contxt" bundle:nil];
-    cameraViewController = [sb instantiateViewControllerWithIdentifier:@"camera"];
-    cameraViewController.delegate = self;
-    [self presentViewController:cameraViewController animated:YES completion:nil];
+    [self presentViewController:imagePicker animated:YES completion:nil];
     
 }
 
@@ -181,6 +177,33 @@
     _refreshOnAppear = TRUE;
     
     
+}
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    // Access the uncropped image from info dictionary
+    UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
+    
+    ImageInfo * imageInfo = [Utilities createImageInfoFromImage:image
+                                                      asPreview:YES
+                                                    asThumbnail:YES];
+    
+    
+    
+    AnnotationDocument * annDoc = [[DataController sharedController] newAnnotationDocument];
+    Project * thisProject = [[DataController sharedController] projectForKey:self.projectKey];
+    
+    [[DataController sharedController] associateImageInfo:imageInfo withAnnotationDocument:annDoc];
+    [[DataController sharedController] associateAnnotationDocument:annDoc withProject:thisProject];
+    [[DataController sharedController] saveContext];
+    
+    [[ServerComms sharedComms] saveAnnotationDoc:annDoc];
+    
+    [picker dismissViewControllerAnimated:YES completion:nil];
+    
+    _refreshOnAppear = TRUE;
+    
+   
 }
 
 
